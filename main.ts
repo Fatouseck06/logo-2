@@ -10,7 +10,10 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
         . . . . .
         `)
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+input.onLogoEvent(TouchButtonEvent.Released, function () {
     Time = input.runningTime() - Start
-    basic.showNumber(Time / 1000)
+    basic.showNumber(Math.idiv(Time, 1000))
+    basic.pause(100)
+    basic.clearScreen()
+    basic.showNumber(Time % 1000)
 })
